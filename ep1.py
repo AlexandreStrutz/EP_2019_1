@@ -16,7 +16,7 @@ def sorteia_monstro():
         print("Por essa você não esperava")
         
         
-  with open("cenarios_file.json", "w") as write_file:
+with open("cenarios_file.json", "w") as write_file:
     json.dump(cenarios, write_file)  
     
 def carregar_cenarios():
@@ -282,8 +282,8 @@ def jogo():
         
     elif acao == '4':
         print("Você empunhou a granada e jogou no meio dos dois grupos")
-        print("Conseguiu causar 100 de dados")
-        print("Porém como você esta em desvantagem numerica, os grupos vão em sua direção")
+        print("Conseguiu causar 100 de danos")
+        print("Porém como você esta em desvantagem numerica, os grupos vão em sua direção e você tem problemas")
         acao=input("Digite o numero da ação que deseja realizar: ")
         if acao == '1':
             print("Você ativou o poder da invisibilidade!")
