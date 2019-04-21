@@ -5,6 +5,7 @@
 # - aluno B: Alexandre Strutz, alexandrebs4@al.insper.edu.br
 
 from random import randint
+import json
 
 
 def sorteia_monstro():
