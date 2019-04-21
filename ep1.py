@@ -6,6 +6,7 @@
 
 from random import randint
 import json
+import requests
 
 
 def sorteia_monstro():
