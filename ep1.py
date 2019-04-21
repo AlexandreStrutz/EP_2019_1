@@ -16,8 +16,6 @@ def sorteia_monstro():
         print("Por essa você não esperava")
         
         
-with open("cenarios_file.json", "w") as write_file:
-    json.dump(cenarios, write_file)  
     
 def carregar_cenarios():
     cenarios = {
@@ -66,11 +64,11 @@ def carregar_cenarios():
         "Cenario2":{
                 "titulo": "Fase 2: Conhecendo o inimigo",
                 "descricao": "Nesse momento você se depara com um grupo de alunos da GV e outro da ESPM"
-                }
+                },
         "Cenario3":{
                 "titulo": "Fase 3: Tentando pular para sala da ultima fase",
                 "descricao": "Agora é a sua hora, você vai mostrar se esta preparado para se tornar um INSPERINO, vamos la: O que significa Private Equity?"
-                }
+                },
         
     }
         
@@ -78,8 +76,6 @@ def carregar_cenarios():
     return cenarios, nome_cenario_atual
 
 
-with open("perguntas_file.json", "w") as write_file:
-    json.dump(perguntas, write_file)
     
     
 perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrema privacidade nessas horas. Em qual banheiro você vai?",
@@ -108,7 +104,7 @@ perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrem
                  "pergunta6": "Tem piscina em qual andar no insper?",
                  "opcoes6":{"quinto andar",
                             "rooftop predio novo",
-                            "nao tem piscina no insper
+                            "nao tem piscina no insper"
                          },
                  "pergunta7": "Qual o melhor time da atletica do insper?",
                  "opcoes7":{"futebol de campo",
@@ -132,7 +128,7 @@ perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrem
                          },
                             
             }
-                
+
 
          
 def incremento_jogo():
@@ -415,7 +411,7 @@ def resolvendo_prova():
         erros+=1
 
     
-     print()    
+    print()    
     print("Pergunta 7")
     print(perguntas["pergunta7"])
     print('-'*len(perguntas["pergunta7"]))
@@ -430,7 +426,7 @@ def resolvendo_prova():
         erros+=1
     
     
-     print()    
+    print()    
     print("Pergunta8")
     print(perguntas["pergunta8"])
     print('-'*len(perguntas["pergunta8"]))
@@ -445,7 +441,7 @@ def resolvendo_prova():
         erros+=1
     
     
-     print()    
+    print()    
     print("Pergunta 9")
     print(perguntas["pergunta9"])
     print('-'*len(perguntas["pergunta9"]))
@@ -460,7 +456,7 @@ def resolvendo_prova():
         erros +=1
     
     
-     print()    
+    print()    
     print("Pergunta 10")
     print(perguntas["pergunta10"])
     print('-'*len(perguntas["pergunta10"]))
@@ -479,24 +475,22 @@ def resolvendo_prova():
         print("Parabéns você foi aprovado na primeira fase do vertibular do Insper 2020.1")
         print("Sua potuação foi de: {0}".format(acertos))
         primeiro_semestre()
-    elif acertos = 5:
+    elif acertos ==5:
         print("Sua nota não foi das melhoras, porem a faculdade acredita no seu potencial, você tem uma ultima chance para entrar no Insper.")
-        Y = input("O que significa "INSPER"?)
-        if Y == 'Inspirar e Pertencer':
+        Y=input("O que significa INSPER?")
+                
+    if Y == 'Inspirar e Pertencer':
             print("Você passou de fase como esperavamos e com isso esta com {0} pontos, agora você vai para a sala do Marcos Lisboa ter uma conversa para ele definir seu potencial".format(pontuacao+repescagem +50))
-        else:
-            game_over = True
-            
-            
     else:
-        print("Sua pontuação foi inferior a 5. Você foi REPROVADO, vai pra GV!!!")
+        print("Sua pontuação foi inferior a 5. Você foi REPROVADO, vai pra GV!!!")    
         game_over = True
-        
+            
+                   
         
 def conversa_com_Marquinhos():
     if pontuacao_repescagem >= 50:
         print("Você tem uma oportunidade de ouro, conversar com um dos economistas mais famosos do pais")
-        Z = input("Ele tem uma pergunta para você, quer uma resposta de sim ou não sobre o salario minimo, você acha que ele deve levar em conta o ajuste real todo ano?)
+        Z = input("Ele tem uma pergunta para você, quer uma resposta de sim ou não sobre o salario minimo, você acha que ele deve levar em conta o ajuste real todo ano?")
         if Z == 'sim':
             pontuacao_repescagem += 50
         else:
