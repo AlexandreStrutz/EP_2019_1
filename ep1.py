@@ -46,6 +46,16 @@ def carregar_cenarios():
                 "titulo": "Inicio do EP1",
                 "descricao": "Nosso deus vivo Raul começa a nos introduzir sobre o EP1.",
                 },
+                "teleporte":{
+                        "titulo": "Esta é a sua chance de ser Raposa o quanto antes",
+                        "descrição": "Se acertar a resposta da pergunta X, poderá ingressar ao curso do insper de maneira mais rapida sem ter que passar por todas as fases",
+                        "opcoes":{"opçao A",
+                                  "opcao B",
+                                  "opcao C",
+                                  "opcao D"
+                                  }
+                        },
+                                  
         "Cenario1":{
                 "titulo": "Fase 1: Testando suas abilidades de combate",
                 "descricao": "Olá, bem vindo ao meu jogo. Nesta primeira fase vamos introduzir suas possiveis ações."
@@ -54,24 +64,30 @@ def carregar_cenarios():
                 "titulo": "Fase 2: Conhecendo o inimigo",
                 "descricao": "Nesse momento você se depara com um grupo de alunos da GV e outro da ESPM"
                 }
+        "Cenario3":{
+                "titulo": "Fase 3: Tentando pular para sala da ultima fase",
+                "descricao": "Agora é a sua hora, você vai mostrar se esta preparado para se tornar um INSPERINO, vamos la: O que significa Private Equity?"
+                }
         
     }
         
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
-perguntas = {"pergunta1":"Você precisa soltar aquele barroso, mas gosta de extrema privacidade nessas horas. Em qual banheiro você vai?",
+perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrema privacidade nessas horas. Em qual banheiro você vai?",
                  "opcoes1":{
                          "segundo andar",
+                         "quinto andar",
                          "decimo primeiro andar"
                          },
                  "pergunta2": "Acabou aquela aula infinita de GDE e você está morrendo de fome. Qual o horario ideal para ir almoçar?",
-                 "opcoes2":{"12:00",
+                 "opcoes2":{"11:45",
                            "13:30"
                          },
                  "pergunta3": "Chegaram as semanas de provas, você fica na duivida café ou energetico. Como consegir café de graça?",
                  "opcoes3":{"puxar o saco de alguem do multi insper",
-                           "marcar reunião com o marcos lisboa e tomar café na sala dele"
+                           "marcar reunião com o marcos lisboa e tomar café na sala dele",
+                           "comprar a capsula e tomar na sala das entidades"
                            },
                  "pergunta4": "Você foi no momento insper a algum tempo e se perguntou: Quem é esse cara que fica indo de um lado pro outro?",
                  "opcoes4":{"presidente do insper",
@@ -80,7 +96,33 @@ perguntas = {"pergunta1":"Você precisa soltar aquele barroso, mas gosta de extr
                  "pergunta5":"Se você tivesse a opcao de ter comecado o ep1 semanas antes, começaria?",
                  "opcoes5":{"sim",
                            "não"
-                         }
+                         },
+                 "pergunta6": "Tem piscina em qual andar no insper?",
+                 "opcoes6":{"quinto andar",
+                            "rooftop predio novo",
+                            "nao tem piscina no insper
+                         },
+                 "pergunta7": "Qual o melhor time da atletica do insper?",
+                 "opcoes7":{"futebol de campo",
+                            "handebol masculino",
+                            "handebol feminino"
+                         },
+                 "pergunta8": "O Insper antigamente tinha qual nome?",
+                 "opcoes8":{"IBMEC",
+                            "Puc SP",
+                            "Fundacao Escola de Comercio Alvares Penteado"
+                         },
+                 "pergunta 9": "Qual universidade tem parceria com o Insper?",
+                 "opcoes9":{"Universidade de British Columbia",
+                            "Harvard",
+                            "UCLA"
+                         },
+                 "pergunta 10": "Existe sala de dormir, sala de netflix ou sala para jogar play station no insper?",
+                 "opcoes10":{"sala de dormir",
+                             "sala de netflix",
+                             "sala para play station",
+                         },
+                            
             }
                 
 
@@ -100,17 +142,26 @@ def incremento2_jogo():
             "1":"Ir guerriar com os grupos",
             "2":"Declarar paz"}
             }
-    desicao = "1"
-    return incremento2, desicao
+    decisao = "1"
+    return incremento2, decisao
 
 def inventario():
     mochila={"a":"Espada da morte",
              "b":"Granada da aniquilação",
              "c":"Poder da invisibilidade"
             }
-    item = "Espada da morte"
+    item = "a"
     return mochila, item
-                 
+    
+
+def teleporte_ultima_sala():
+    entrar_insper = {"1":"PE é uma modalidade de investimento em que um fundo levanta capital para adquirir participação em empresas já desenvolvidas e obter lucro a médio ou longo prazo com a venda",
+                     "2": "PE são transações nas quais a propriedade de empresas, outras organizações empresariais ou suas unidades operacionais são transferidas ou consolidadas com outras entidades",
+                     "3": "PE é qualquer tipo de investimento que possui regras de remuneração definidas no momento da aplicação no título",
+                     }
+    resposta = "1"
+    return entrar_insper, teleporte_ultima_sala
+              
 def jogo():
     vida = 100
     cenarios, nome_cenario_atual = carregar_cenarios()
@@ -135,21 +186,32 @@ def jogo():
     for j,m in mochila.items():
         print(j,m)
     
+    print("Sua vida atual é: {0}".format(vida))
+    print()     
+    cenario_atual = cenarios["Cenario3"]
+    print(cenario_atual["titulo"])
+    print('-'*len(cenario_atual["titulo"]))
+    print(cenario_atual["descricao"])
+    print("Seu teleporte: ")
+    entrar_insper, teleporte_ultima_sala = teleporte_ultima_sala()
+    for n,o in entrar_insper.teleporte_ultima_sala():
+        print(n,o)
+        
     acao=input("Digite o numero da ação que deseja realizar: ")
     if acao == '1':
         print("Com o poder da invisibilidade você consegue ir no meio dos dois grupos e continua a estuda-los.")
-        print("Não é permitido ativar o item 1")
+        print("Não é permitido ter medo e ativar o item 1")
         acao=input("Digite o numero da ação que deseja realizar: ")
         if acao == '2':
-            print("Essa não, pessima escolha")
+            print("Essa não, pessima escolha, você está fora.")
             game_over = True
         elif acao == '3':
             print("Você saiu correndo e sem querer deixou o poder da invisibilidade cair")
             print("Agora você não pode mais acessa-lo")
             print("Mas ok! Você chegou na sala das entidades")
             print()
-            print("Você conseguiu mais quatro guerreiros")
-            incremento2, desicao = incremento2_jogo()
+            print("Você conseguiu mais quatro guerreiros para ajuda-lo nesta luta")
+            incremento2, decisao = incremento2_jogo()
             for f,c in incremento2["jogo2"].items:
                 print(f,c)
             acao=input("Digite o numero da ação que deseja realizar: ")
@@ -157,12 +219,12 @@ def jogo():
                 print("Você e seu grupo causaram 350 de dano nos outrou grupos")
                 
             elif acao == '2':
-                print("Nossa, paz com esse pessoal da GV e ESPM? Um completo absurdo")
+                print("Nossa, paz com esse pessoal da GV e ESPM? Um completo absurdo, não esperamos uma atitude dessa de um aluno nosso")
                 print("Devido sua pessima escolha estou te banindo do meu ilustre jogo")
                 game_over = True
             
         elif acao == '4':
-            print("Ao jogar a granada você eliminou os grupos, mas...também perderu sua vida!")
+            print("Ao jogar a granada você eliminou os grupos, mas...também perdeu sua vida! Diga adeus para este jogo.")
             print("Você se sacrificou em nome de um bem maior")
             game_over == True
         
@@ -171,30 +233,30 @@ def jogo():
         print("Mas você estava em desvantagem numérica")
         print("Agora você tem {0}".format(vida-50))
         print("Você está muito fraco para lutar e correr, só restão as opções: 1 e 4")
-        acao=input("Digite o numero da ação que deseja realizar: ")
+        acao=input("Digite o numero da ação que deseja realizar: (1 ou 4) ")
         if acao == "4":
-            print("Uau... você eliminou os grupos porém não conseguiu sobreviver")
+            print("Uau... você eliminou os grupos porém não conseguiu sobreviver, se machucou muito, fim de jogo para você.")
             game_over = True
         elif acao == '1':
-            print("Você está invisivel, poranto indetectável pelos grupos adversários")
+            print("Você está invisivel, portanto indetectável pelos grupos adversários")
             print("Você acaba de ganhar o elixir da vida")
             print("Agora você tem {0}".format(vida+25))
             print("Suas ações podem ser 2, 3 e 4")
-            acao=input("Digite o numero da ação que deseja realizar: ")
+            acao=input("Digite o numero da ação que deseja realizar: (2,3 ou 4) ")
             if acao == '2':
-                print("Adimiro sua persistência, mas você não é forte o suficiente")
+                print("Adimiro sua persistência, mas você não é forte o suficiente, tchau.")
                 game_over = True
             elif acao == '3':
-                print("Você conseguiu mais quatro guerreiros")
+                print("Você conseguiu mais quatro loucos pela raposa para te ajudar.")
                 
             elif acao == '4':
-                print("Respeito sua decisão, mas você não é importal!")
+                print("Respeito sua decisão, mas você não é imortal!")
                 game_over = True
                 
                 
         
     elif acao == '3':
-        incremento2, desicao = incremento2_jogo()
+        incremento2, decisao = incremento2_jogo()
         print("Excelente decisão, você conseguiu mais quatro guerreiros")
         for f,c in incremento2["jogo2"].items:
             print(f,c)
@@ -204,7 +266,7 @@ def jogo():
             
         elif acao == '2':
             print("Nossa, paz com esse pessoal da GV e ESPM? Um completo absurdo")
-            print("Devido sua pessima escolha estou te banindo do meu ilustre jogo")
+            print("Devido sua pessima escolha estou te banindo do meu ilustre jogo pra sempre, você nao merece estar aqui")
             game_over = True
             
 
@@ -220,13 +282,16 @@ def jogo():
             print("Por pouco você não é aniquilado")
             acao=input("Digite o numero da ação que deseja realizar: ")
         elif acao == '2':
-            print("Brvo, bravo!!!")
+            print("Bravo, bravo!!!")
             print("Você lutou como um espartano sedento por sangue")
             acao=input("Digite o numero da ação que deseja realizar: ")
         elif acao == '3':
             print("Neste momento os grupos estão atras de você")
             print("Quando você chega a sala  das entidades não encontra ninguém")
             acao=input("Digite o numero da ação que deseja realizar: ")
+
+
+
 def primeiro_semestre():
     
     
@@ -327,16 +392,114 @@ def resolvendo_prova():
         acertos+=1
     else:
         erros=+1
-    print()  
+    print() 
+    print("Pergunta 6")
+    print(perguntas["pergunta6"])
+    print('-'*len(perguntas["pergunta6"]))
+    print()
+    for e in perguntas['opcoes6']:
+        print(e)
+    print()
+    escolha = input('Digite sua resposta: ')
+    if escolha == 'nao tem piscina no insper':
+        acertos += 1
+    else:
+        erros+=1
+
     
-    if acertos>=3:
+     print()    
+    print("Pergunta 7")
+    print(perguntas["pergunta7"])
+    print('-'*len(perguntas["pergunta7"]))
+    print()
+    for e in perguntas['opcoes7']:
+        print(e)
+    print()
+    escolha = input('Digite sua resposta: ')
+    if escolha == 'futebol de campo':
+        acertos+=1
+    else:
+        erros+=1
+    
+    
+     print()    
+    print("Pergunta8")
+    print(perguntas["pergunta8"])
+    print('-'*len(perguntas["pergunta8"]))
+    print()
+    for e in perguntas['opcoes8']:
+        print(e)
+    print()
+    escolha = input('Digite sua resposta: ')
+    if escolha == 'IBMEC':
+        acertos +=1
+    else:
+        erros+=1
+    
+    
+     print()    
+    print("Pergunta 9")
+    print(perguntas["pergunta9"])
+    print('-'*len(perguntas["pergunta9"]))
+    print()
+    for e in perguntas['opcoes9']:
+        print(e)
+    print()
+    escolha = input('Digite sua resposta: ')
+    if escolha == 'universidade de British Columbia':
+        acertos+=1
+    else:
+        erros +=1
+    
+    
+     print()    
+    print("Pergunta 10")
+    print(perguntas["pergunta10"])
+    print('-'*len(perguntas["pergunta10"]))
+    print()
+    for e in perguntas['opcoes10']:
+        print(e)
+    print()
+    escolha = input('Digite sua resposta: ')
+    if escolha == 'sala para dormir':
+        acertos+=1
+    else:
+        erros+=1
+        
+    pontuacao_repescagem = 0
+    if acertos>5:
         print("Parabéns você foi aprovado na primeira fase do vertibular do Insper 2020.1")
         print("Sua potuação foi de: {0}".format(acertos))
         primeiro_semestre()
+    elif acertos = 5:
+        print("Sua nota não foi das melhoras, porem a faculdade acredita no seu potencial, você tem uma ultima chance para entrar no Insper.")
+        Y = input("O que significa "INSPER"?)
+        if Y == 'Inspirar e Pertencer':
+            print("Você passou de fase como esperavamos e com isso esta com {0} pontos, agora você vai para a sala do Marcos Lisboa ter uma conversa para ele definir seu potencial".format(pontuacao+repescagem +50))
+        else:
+            game_over = True
+            
+            
     else:
-        print("Sua pontuação foi inferior a 3. Você foi REPROVADO!!!")
+        print("Sua pontuação foi inferior a 5. Você foi REPROVADO, vai pra GV!!!")
         game_over = True
-    
+        
+        
+def conversa_com_o_Marquinhos():
+    if pontuacao_repescagem >= 50:
+        print("Você tem uma oportunidade de ouro, conversar com um dos economistas mais famosos do pais")
+        Z = input("Ele tem uma pergunta para você, quer uma resposta de sim ou não sobre o salario minimo, você acha que ele deve levar em conta o ajuste real todo ano?)
+        if Z == 'sim':
+            pontuacao_repescagem += 50
+        else:
+            print("Você não merece ser raposa, você esta eliminado do processo seletivo, tente proximo semestre")
+            game_over = True
+            
+    if pontuacao_repescagem == 100:
+        print("Você ganhou o direito de ingressar na faculdade em 2020.1")
+    else:
+        game_over = True
+        
 def main():
     print("Na hora do sufoco!")
     print("------------------")
