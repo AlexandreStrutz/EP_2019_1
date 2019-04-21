@@ -8,7 +8,7 @@ from random import randint
 import json
 import requests
 
-
+tempo = 10
 def sorteia_monstro():
     level = randint(0,5)
     if level > 3:
@@ -493,7 +493,7 @@ def resolvendo_prova():
         game_over = True
         
         
-def conversa_com_o_Marquinhos():
+def conversa_com_Marquinhos():
     if pontuacao_repescagem >= 50:
         print("Você tem uma oportunidade de ouro, conversar com um dos economistas mais famosos do pais")
         Z = input("Ele tem uma pergunta para você, quer uma resposta de sim ou não sobre o salario minimo, você acha que ele deve levar em conta o ajuste real todo ano?)
@@ -587,6 +587,8 @@ def main():
                     
                     if escolha == 'vamo que vamo':
                         resolvendo_prova()
+                        if resolvendo_prova() == 5:
+                            conversa_com_Marquinhos()
                     if escolha == 'vish vou dar um migue':
                         game_over = True
                         
