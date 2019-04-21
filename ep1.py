@@ -75,7 +75,7 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
-
+parsed_json = json.loads(cenarios)
     
     
 perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrema privacidade nessas horas. Em qual banheiro você vai?",
@@ -129,7 +129,7 @@ perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrem
                             
             }
 
-
+parsed_json = json.loads(perguntas)  
          
 def incremento_jogo():
     incremento = {"jogo1":{"1":"Poder da invisibilidade",
