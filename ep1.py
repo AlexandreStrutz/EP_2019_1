@@ -15,7 +15,8 @@ def sorteia_monstro():
         print("Por essa você não esperava")
         
         
-    
+  with open("cenarios_file.json", "w") as write_file:
+    json.dump(cenarios, write_file)  
     
 def carregar_cenarios():
     cenarios = {
@@ -75,6 +76,11 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
+
+with open("perguntas_file.json", "w") as write_file:
+    json.dump(perguntas, write_file)
+    
+    
 perguntas = {"pergunta1":"Você precisa soltar aquele barro, mas gosta de extrema privacidade nessas horas. Em qual banheiro você vai?",
                  "opcoes1":{
                          "segundo andar",
